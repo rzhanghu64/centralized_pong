@@ -1,5 +1,5 @@
-import paddles from "gamelogic";
-import ball from "gamelogic";
+import {paddles} from "./gamelogic.js";
+import {ball} from "./gamelogic.js";
 
 var canvas = document.getElementById("pongTable");
 var ctx = canvas.getContext("2d");
@@ -16,7 +16,7 @@ function drawPaddle(paddle) {
 
 function drawBall(ball) {
     ctx.beginPath();
-    ctx.arc(ball.xPos, ball.yPos, ball.ballRadius, 0, Math.PI * 2);
+    ctx.arc(ball.xPos, ball.yPos, ball.radius, 0, Math.PI * 2);
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
     ctx.closePath();

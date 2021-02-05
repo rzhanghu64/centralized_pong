@@ -15,7 +15,7 @@ export function Paddle(xcoord, ycoord, upKey, downKey, id) {
 }
 
 export function Ball(canvas) {
-    this.ballRadius = 10;
+    this.radius = 10;
     this.xPos = canvas.width / 2;
     this.yPos = canvas.height / 2;
     this.balldx = 2;

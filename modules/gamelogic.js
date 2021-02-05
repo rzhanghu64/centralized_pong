@@ -1,11 +1,16 @@
-import {Paddle} from "gamestate.js";
-import {Ball} from "gamestate.js";
+import {Paddle} from "./gamestate.js";
+import {Ball} from "./gamestate.js";
 
 var canvas = document.getElementById("pongTable");
+var paddleWidth = 10;
+
 
 export var paddles = [];
-paddles.push(new Paddle(50, canvas.height / 2 - 50, "w", "s", p1));
-paddles.push(new Paddle(canvas.width - 50 - paddleWidth, canvas.height / 2 - 50, "o", "l", p2));
+paddles.push(new Paddle(50, canvas.height / 2 - 50, "w", "s", "p1"));
+paddles.push(new Paddle(canvas.width - 50 - paddleWidth, canvas.height / 2 - 50, "o", "l", "p2"));
+paddles.forEach(paddle => {
+    console.log(paddle.id);
+});
 
 export var ball = new Ball(canvas);
 
@@ -25,16 +30,16 @@ function update() {
     });
 
 
-    if (yb + balldy > canvas.height - ballRadius || yb + balldy < ballRadius) {
-        balldy = -balldy;
+    if (ball.yPos + ball.balldy > canvas.height - ball.radius || ball.yPos + ball.balldy < ball.radius) {
+        ball.balldy = -ball.balldy;
     }
 
-    if (xb + balldx > canvas.width - ballRadius || xb + balldx < ballRadius) {
-        balldx = -balldx;
+    if (ball.xPos + ball.balldx > canvas.width - ball.radius || ball.xPos + ball.balldx < ball.radius) {
+        ball.balldx = -ball.balldx;
     }
 
-    xb += balldx;
-    yb += balldy;
+    ball.xPos += ball.balldx;
+    ball.yPos += ball.balldy;
 }
 
 function keyDownHandler(e) {
