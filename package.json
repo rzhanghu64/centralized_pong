@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/rzhanghu64/centralized_pong/issues"
   },
-  "homepage": "https://github.com/rzhanghu64/centralized_pong#readme"
+  "homepage": "https://github.com/rzhanghu64/centralized_pong#readme",
+  "dependencies": {
+    "websocket": "^1.0.33",
+    "ws": "^7.4.3"
+  }
 }

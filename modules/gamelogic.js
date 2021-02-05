@@ -1,6 +1,8 @@
 import {Paddle} from "./gamestate.js";
 import {Ball} from "./gamestate.js";
 
+let wss = new WebSocket('ws://localhost:3000');
+
 var canvas = document.getElementById("pongTable");
 var paddleWidth = 10;
 
@@ -22,7 +24,7 @@ function update() {
                 paddle.y = 0;
             }
         } else if (paddle.downKeyPressed) {
-            paddle.y += paddle.dx;
+            paddle.y += paddle.dy;
             if (paddle.y > canvas.height - 100) {
                 paddle.y = canvas.height - 100;
             }
@@ -48,7 +50,7 @@ function keyDownHandler(e) {
         key: e.key
     };
 
-    webSocket.send(JSON.stringify(data));
+    wss.send(JSON.stringify(data));
 
     paddles.forEach(paddle => {
         if (e.key === paddle.upKey) {
